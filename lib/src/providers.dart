@@ -146,10 +146,10 @@ class ProviderAd extends ChangeNotifier {
 
     switch (adProvider) {
       case AdProvider.mopub:
-        _mopubAdProvider?.preLoadAd();
+        _mopubAdProvider?.preLoadAd(isAlreadyLoaded: isAlreadyLoaded);
         break;
       case AdProvider.admob:
-        _admobAdProvider?.preLoadAd();
+        _admobAdProvider?.preLoadAd(isAlreadyLoaded: isAlreadyLoaded);
         break;
     }
   }
