@@ -28,8 +28,7 @@ class MopubAdProvider implements IAdProvider {
       print('ad is in loading queue');
     } else if (loadOutcome == -1) {
       _isAvailableToShowRewardVideo = true;
-      // isAlreadyLoaded();
-      showRewardedVideo('');
+      isAlreadyLoaded();
     } else {
       //failed to add Ad to loading queue
       print('failed to load ad : errCode = $loadOutcome');
