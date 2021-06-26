@@ -67,7 +67,7 @@ class MopubAdProvider implements IAdProvider {
             break;
           case RewardedVideoAdEvent.FAILURE:
             _isAvailableToShowRewardVideo = false;
-            preLoadAd(isAlreadyLoaded: loadedRewarded);
+            errorLoadRewarded();
             break;
           case RewardedVideoAdEvent.STARTED:
             break;
