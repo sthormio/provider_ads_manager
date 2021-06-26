@@ -62,35 +62,6 @@ class _HomeState extends State<Home> {
         errorLoadRewarded: () {},
       ),
     );
-
-    // providerAd.rewardedEventListener(
-    //   // mopubRewardedListener: RewardedListener(
-    //   //   loadedRewarded: () {
-    //   //     setState(() {
-    //   //       isLoadedAdMopub = true;
-    //   //     });
-    //   //   },
-    //   //   closeVideo: () {
-    //   //     setState(() {
-    //   //       isLoadedAdMopub = false;
-    //   //     });
-    //   //   },
-    //   //   grantRewarded: () {},
-    //   // ),
-    //   adMobRewardedListener: RewardedListener(
-    //     loadedRewarded: () {
-    //       setState(() {
-    //         isLoadedAdMob = true;
-    //       });
-    //     },
-    //     closeVideo: () {
-    //       setState(() {
-    //         isLoadedAdMob = false;
-    //       });
-    //     },
-    //     grantRewarded: () {},
-    //   ),
-    // );
   }
 
   @override
