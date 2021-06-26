@@ -37,6 +37,8 @@ class _HomeState extends State<Home> {
           });
         },
         grantRewarded: () {},
+        errorLoadRewarded: () {},
+        click: () {},
       ),
     );
 
@@ -45,6 +47,7 @@ class _HomeState extends State<Home> {
         rewardedId: ProviderIds.adMobRewardedAd,
       ),
       rewardedListener: RewardedListener(
+        click: () {},
         loadedRewarded: () {
           setState(() {
             isLoadedAdMob = true;
@@ -56,6 +59,7 @@ class _HomeState extends State<Home> {
           });
         },
         grantRewarded: () {},
+        errorLoadRewarded: () {},
       ),
     );
 
@@ -122,7 +126,12 @@ class _HomeState extends State<Home> {
                 if (isLoadedAdMopub) {
                   providerAd.showRewardedVideo(adProvider: AdProvider.mopub);
                 } else {
-                  providerAd.preLoadAd(adProvider: AdProvider.mopub);
+                  providerAd.preLoadAd(
+                    adProvider: AdProvider.mopub,
+                    isAlreadyLoaded: () {
+                      print("This add is already loaded");
+                    },
+                  );
                 }
               },
             ),
@@ -142,7 +151,12 @@ class _HomeState extends State<Home> {
                 if (isLoadedAdMob) {
                   providerAd.showRewardedVideo(adProvider: AdProvider.admob);
                 } else {
-                  providerAd.preLoadAd(adProvider: AdProvider.admob);
+                  providerAd.preLoadAd(
+                    adProvider: AdProvider.admob,
+                    isAlreadyLoaded: () {
+                      print("This add is already loaded");
+                    },
+                  );
                 }
               },
             ),
