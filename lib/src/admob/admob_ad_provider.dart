@@ -39,15 +39,13 @@ class AdmobAdProvider implements IAdProvider {
 
   @override
   Future<void> preLoadAd({Function isAlreadyLoaded}) async {
-    await _myRewarded?.dispose();
+    bool isLoaded = await _myRewarded.isLoaded();
 
-    _myRewarded = RewardedAd(
-      adUnitId: provideUnitIds.rewardedId,
-      request: AdRequest(),
-      listener: _rewardedListener,
-    );
-
-    await _myRewarded.load();
+    if (isLoaded) {
+      isAlreadyLoaded();
+    } else {
+      await _myRewarded.load();
+    }
   }
 
   @override
@@ -76,13 +74,15 @@ class AdmobAdProvider implements IAdProvider {
         print(ad.adUnitId);
         print(ad.hashCode);
       },
-      onAdFailedToLoad: (Ad ad, LoadAdError error) {
+      onAdFailedToLoad: (Ad ad, LoadAdError error) async {
         print(ad);
         print(error);
-        ad.dispose();
         _isAvailableToShowRewardVideo = false;
+        errorLoadRewarded();
       },
     );
+
+    _addRewardedInstance();
   }
 
   @override
@@ -90,6 +90,14 @@ class AdmobAdProvider implements IAdProvider {
     if (_isAvailableToShowRewardVideo) {
       await _myRewarded.show();
     }
+  }
+
+  void _addRewardedInstance() {
+    _myRewarded = RewardedAd(
+      adUnitId: provideUnitIds.rewardedId,
+      request: AdRequest(),
+      listener: _rewardedListener,
+    );
   }
 
   @override
