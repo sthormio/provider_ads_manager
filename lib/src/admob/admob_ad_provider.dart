@@ -42,6 +42,9 @@ class AdmobAdProvider implements IAdProvider {
     bool isLoaded = await _myRewarded.isLoaded();
 
     if (isLoaded) {
+      await _addRewardedInstance();
+      await _myRewarded.load();
+
       isAlreadyLoaded();
     } else {
       await _myRewarded.load();
@@ -92,7 +95,7 @@ class AdmobAdProvider implements IAdProvider {
     }
   }
 
-  void _addRewardedInstance() {
+  Future<void> _addRewardedInstance() async {
     _myRewarded = RewardedAd(
       adUnitId: provideUnitIds.rewardedId,
       request: AdRequest(),
