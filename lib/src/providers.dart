@@ -8,7 +8,7 @@ import '../shared/utils/provider_ids.dart';
 import 'admob/admob_ad_provider.dart';
 import 'mopub/mopub_ad_provider.dart';
 
-class ProviderAd extends ChangeNotifier {
+class ProviderAd {
   IAdProvider _mopubAdProvider;
   IAdProvider _admobAdProvider;
   bool _mopubIsAvailable = false;
@@ -228,10 +228,8 @@ class ProviderAd extends ChangeNotifier {
     return;
   }
 
-  @override
   void dispose() {
     _mopubAdProvider?.dispose();
     _admobAdProvider?.dispose();
-    super.dispose();
   }
 }
