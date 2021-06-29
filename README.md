@@ -1,8 +1,13 @@
-# Provider Ads Manager
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-purple.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-purple.svg" />
+  </a>
+</p>
+<h1 align="center" >Provider Ads Manager<h1/> 
 
-Provider ads manager is a package open source that have goal of the became the management of the ads inside your flutter app more easy. Whit this package you will can initialize and manager ad providers using the same methods and parameters.
-
-At this moment the provider ads manager have two ad providers implemented (Mopub and AdMob) but the goal is implements others too. The type of the ad supported at this moment is rewarded video ad.
+##### Provider ads manager is a package open source that have goal of the became the management of the ads inside your flutter app more easy. Whit this package you will can initialize and manager ad providers using the same methods and parameters.
+##### At this moment the provider ads manager have two ad providers implemented (Mopub and AdMob) but the goal is implements others too. The type of the ad supported at this moment is rewarded video ad.
 
 ### AdMob prerequisites
 
